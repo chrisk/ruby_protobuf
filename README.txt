@@ -1,3 +1,10 @@
+= Warning
+
+This copy (at chrisk/ruby_protobuf on GitHub) is an experimental fork. If
+you're interested in using ruby_protobuf, please check out the original
+project (on Google Code) for now.
+
+
 = RubyProtobuf
 
 * http://code.google.com/p/ruby-protobuf
