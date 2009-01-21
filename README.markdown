@@ -1,4 +1,4 @@
-ruby_protobuf: Protocol Buffers for Ruby
+ruby\_protobuf: Protocol Buffers for Ruby
 ============
 
 An experimental fork based on original code from:
