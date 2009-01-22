@@ -1,5 +1,6 @@
 require 'rake'
 require 'rake/testtask'
+require 'rcov/rcovtask'
 
 begin
   require 'jeweler'
@@ -20,3 +21,9 @@ Rake::TestTask.new do |t|
 end
 
 task :default => :test
+
+Rcov::RcovTask.new do |t|
+  t.libs << "lib" << "test"
+  t.test_files = FileList['test/test_*.rb']
+  t.verbose = true
+end
