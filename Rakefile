@@ -1,5 +1,6 @@
 require 'rake'
 require 'rake/testtask'
+require 'rake/rdoctask'
 require 'rcov/rcovtask'
 
 begin
@@ -26,4 +27,14 @@ Rcov::RcovTask.new do |t|
   t.libs << "lib" << "test"
   t.test_files = FileList['test/test_*.rb']
   t.verbose = true
+end
+
+Rake::RDocTask.new do |rdoc|
+  rdoc.rdoc_dir = 'doc'
+  rdoc.title = 'ruby_protobuf Documentation'
+  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.rdoc_files.include('README*')
+  rdoc.rdoc_files.include('LICENSE*')
+  rdoc.rdoc_files.include('History.txt')
+  rdoc.rdoc_files.include('lib/**/*.rb')
 end
