@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'optparse'
+require 'yaml'
 if File.exist? "#{File.dirname(__FILE__)}/../lib"
   $: << "#{File.dirname(__FILE__)}/../lib"
 else
@@ -18,7 +19,8 @@ opts.on('-o', '--out <OUT_DIR>', 'Specify the directory in which Ruby source fil
 opts.on_tail('-v', '--version', 'Show version.'){puts(opts.ver); exit}
 opts.on_tail('-h', '--help', 'Show this message.'){puts(opts.help); exit}
 
-::Version = RubyProtobuf::VERSION
+version_hash = YAML.load_file("#{File.dirname(__FILE__)}/../VERSION.yml")
+::Version = "#{version_hash[:major]}.#{version_hash[:minor]}.#{version_hash[:patch]}"
 opts.order! ARGV
 PROTO_FILE = ARGV.shift
 
