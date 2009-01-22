@@ -7,7 +7,6 @@ else
   gem 'ruby_protobuf'
 end
 require 'ruby_protobuf'
-#require 'protobuf/compiler/compiler_old'
 require 'protobuf/compiler/compiler'
 
 
