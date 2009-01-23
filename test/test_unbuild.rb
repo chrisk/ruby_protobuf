@@ -1,10 +1,4 @@
-#!/usr/bin/env ruby
-
-$:.push "#{File.dirname(__FILE__)}/../lib"
-
-require 'test/unit'
-require 'protobuf/descriptor/descriptor_builder' 
-require 'protobuf/descriptor/descriptor_proto'
+require File.join(File.dirname(__FILE__), "test_helper")
 
 class DescriptorTest < Test::Unit::TestCase
   def test_unbuild

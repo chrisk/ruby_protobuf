@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'test/addressbook'
+require File.join(File.dirname(__FILE__), "test_helper")
 
 class SerializeTest < Test::Unit::TestCase
   def test_serialize

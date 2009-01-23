@@ -1,7 +1,4 @@
-require 'test/unit'
-require 'protobuf/message/message'
-require 'protobuf/message/enum'
-require 'test/addressbook'
+require File.join(File.dirname(__FILE__), "test_helper")
 
 class StandardMessageTest < Test::Unit::TestCase
   def test_initialized

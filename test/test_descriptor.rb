@@ -1,7 +1,4 @@
-require 'test/unit'
-require 'test/addressbook'
-require 'protobuf/descriptor/descriptor_builder'
-require 'protobuf/descriptor/descriptor_proto'
+require File.join(File.dirname(__FILE__), "test_helper")
 
 class DescriptorTest < Test::Unit::TestCase
   include Google::Protobuf
@@ -111,12 +108,5 @@ class DescriptorTest < Test::Unit::TestCase
     assert_equal 2, Build::Tutorial::Person::PhoneType::WORK
 
     assert_nothing_raised {Build::Tutorial::AddressBook}
-  end
-
-  def test_unbuild
-    proto = Protobuf::Descriptor::FileDescriptor.unbuild Tutorial::Person
-    proto.serialize_to_file 'person.bin'
-    puts
-    puts "run `test/check_unbuild.rb'"
   end
 end

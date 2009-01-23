@@ -1,4 +1,4 @@
-import "test/addressbook_base.proto";
+import "test/fixtures/proto/addressbook_base.proto";
 package tutorial;
 
 extend Person {

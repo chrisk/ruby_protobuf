@@ -1,7 +1,4 @@
-require 'protobuf/message/message'
-require 'test/addressbook'
-require 'test/merge'
-require 'test/unit'
+require File.join(File.dirname(__FILE__), "test_helper")
 
 class MessageTest < Test::Unit::TestCase
   def test_equality
@@ -38,13 +35,13 @@ class MessageTest < Test::Unit::TestCase
   def test_defined_filenames
     assert Tutorial::Person.defined_filenames
     assert_equal 1, Tutorial::Person.defined_filenames.size
-    assert Tutorial::Person.defined_filenames.first =~ %r{/.*/test/addressbook\.rb}
+    assert Tutorial::Person.defined_filenames.first =~ %r{/.*/test/fixtures/addressbook\.rb}
   end
 
   def test_proto_filenames
     assert Tutorial::Person.proto_filenames
     assert_equal 1, Tutorial::Person.proto_filenames.size
-    assert_equal 'test/addressbook.proto', Tutorial::Person.proto_filenames.first
+    assert_equal 'test/fixtures/proto/addressbook.proto', Tutorial::Person.proto_filenames.first
   end
 
   def test_proto_contents

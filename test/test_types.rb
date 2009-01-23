@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'test/types'
+require File.join(File.dirname(__FILE__), "test_helper")
 
 class TypesTest < Test::Unit::TestCase
   def test_serialize
@@ -16,7 +15,7 @@ class TypesTest < Test::Unit::TestCase
     types.type10 = 100000
     types.type11 = false
     types.type12 = 'hello all types'
-    image_bin = File.open('test/data/unk.png', 'r+b'){|f| f.read}
+    image_bin = File.open('test/fixtures/data/unk.png', 'r+b'){|f| f.read}
     types.type13 = image_bin
 
     serialized_string = types.serialize_to_string
@@ -41,7 +40,7 @@ class TypesTest < Test::Unit::TestCase
 
   def test_parse
     types = Test::Types::TestTypes.new
-    types.parse_from_file 'test/data/types.bin'
+    types.parse_from_file 'test/fixtures/data/types.bin'
     assert_in_delta 0.01, types.type1, 0.00001
     assert_in_delta 0.1, types.type2, 0.00001
     assert_equal 1, types.type3
@@ -54,7 +53,7 @@ class TypesTest < Test::Unit::TestCase
     assert_equal 100000, types.type10
     assert_equal false, !!types.type11
     assert_equal 'hello all types', types.type12
-    assert_equal File.open('test/data/unk.png', 'r+b'){|f| f.read}, types.type13
+    assert_equal File.open('test/fixtures/data/unk.png', 'r+b'){|f| f.read}, types.type13
   end
 
   def test_double

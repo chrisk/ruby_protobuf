@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'test/addressbook_ext.rb'
+require File.join(File.dirname(__FILE__), "test_helper")
 
 class ExtensionTest < Test::Unit::TestCase
   def test_accessor
